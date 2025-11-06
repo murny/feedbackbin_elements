@@ -1,0 +1,35 @@
+# frozen_string_literal: true
+
+module FeedbackbinElements
+  module FormHelper
+    def render_form_with(**options, &block)
+      # Extract custom options
+      classes = options.delete(:class) || ""
+
+      # Set default form classes with custom styling
+      base_classes = "space-y-6"
+      options[:class] = tw_merge(base_classes, classes)
+
+      # TODO: Uncomment this when we custom form builder is ready
+      # Use our CustomFormBuilder
+      # options[:builder] = FormBuilders::CustomFormBuilder
+
+      form_with(**options, &block)
+    end
+
+    def render_form_for(record, **options, &block)
+      # Extract custom options
+      classes = options.delete(:class) || ""
+
+      # Set default form classes with custom styling
+      base_classes = "space-y-6"
+      options[:class] = tw_merge(base_classes, classes)
+
+      # TODO: Uncomment this when we custom form builder is ready
+      # Use our CustomFormBuilder
+      # options[:builder] = FormBuilders::CustomFormBuilder
+
+      form_for(record, **options, &block)
+    end
+  end
+end

@@ -1,8 +1,44 @@
 # FeedbackbinElements
-Short description and motivation.
+
+Shadcn-inspired UI component library for Ruby on Rails, built with Tailwind CSS.
+
+## Components
+
+- Accordion
+- Alert
+- Avatar
+- Badge
+- Breadcrumb
+- Button
+- Card
+- Dropdown Menu
+- Forms
+- Popover
+- Tabs
+- Toast
 
 ## Usage
-How to use my plugin.
+
+All component helpers are automatically available in your views:
+
+```erb
+<%= render_button text: "Click me", variant: :primary %>
+<%= render_badge text: "New", variant: :success %>
+<%= render_card do %>
+  <h2>Card Title</h2>
+  <p>Card content</p>
+<% end %>
+```
+
+## Documentation
+
+Mount the documentation engine in your routes to access interactive component examples:
+
+```ruby
+mount FeedbackbinElements::Engine, at: "/"
+```
+
+Then visit `/components` to view all component examples and usage.
 
 ## Installation
 Add this line to your application's Gemfile:

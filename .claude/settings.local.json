@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bundle exec rake:*)",
+      "Bash(bundle exec rails test:*)",
+      "Bash(bundle list:*)",
+      "Bash(gem info:*)",
+      "WebSearch",
+      "Bash(gem contents:*)",
+      "Bash(cat:*)",
+      "Bash(mkdir:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)",
+      "Bash(gem list:*)",
+      "Bash(bundle exec rails tailwindcss:build:*)",
+      "Bash(bundle exec rails:*)",
+      "Bash(curl:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

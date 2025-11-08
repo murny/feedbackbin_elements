@@ -1,0 +1,65 @@
+<%
+  showcase.title "Button"
+  showcase.description "Displays a button or a component that looks like a button."
+%>
+
+<% showcase.sample "Base Variants" do %>
+  <div class="flex flex-wrap gap-4 items-center">
+    <%= render_button(text: "Primary") %>
+    <%= render_button(text: "Secondary", variant: :secondary) %>
+    <%= render_button(text: "Destructive", variant: :destructive) %>
+    <%= render_button(text: "Outline", variant: :outline) %>
+    <%= render_button(text: "Ghost", variant: :ghost) %>
+    <%= render_button(text: "Link", variant: :link) %>
+  </div>
+<% end %>
+
+<% showcase.sample "Sizes" do %>
+  <div class="flex flex-wrap gap-4 items-center">
+    <%= render_button(text: "Large button", size: :lg) %>
+    <%= render_button(text: "Base button") %>
+    <%= render_button(text: "Small button", size: :sm) %>
+  </div>
+<% end %>
+
+<% showcase.sample "With Icons" do %>
+  <div class="flex flex-wrap gap-4 items-center">
+    <%= render_button(variant: :outline, size: :icon) do %>
+      <%= lucide_icon "chevron-right" %>
+    <% end %>
+
+    <%= render_button do %>
+      <%= lucide_icon "plus" %>
+      Add Item
+    <% end %>
+  </div>
+<% end %>
+
+<% showcase.sample "Loading State" do %>
+  <div class="flex flex-wrap gap-4 items-center">
+    <%= render_button(text: "Loading Primary", loading: true) %>
+    <%= render_button(text: "Loading Secondary", variant: :secondary, loading: true) %>
+    <%= render_button(text: "Loading Destructive", variant: :destructive, loading: true) %>
+    <%= render_button(text: "Loading Outline", variant: :outline, loading: true) %>
+  </div>
+<% end %>
+
+<% showcase.sample "As Link" do %>
+  <div class="flex flex-wrap gap-4 items-center">
+    <%= render_button(text: "Link Button", href: "#") %>
+    <%= render_button(text: "External Link", href: "https://example.com", target: "_blank", variant: :outline) %>
+  </div>
+<% end %>
+
+<% showcase.sample "Expanded Width" do %>
+  <div class="w-full max-w-md">
+    <%= render_button(text: "Full Width Button", expanded: true) %>
+  </div>
+<% end %>
+
+<% showcase.sample "Custom Classes" do %>
+  <div class="flex flex-wrap gap-4 items-center">
+    <%= render_button(text: "Custom Colors", class: "bg-purple-600 hover:bg-purple-700") %>
+    <%= render_button(text: "Extra Padding", class: "px-8 py-4", variant: :outline) %>
+  </div>
+<% end %>

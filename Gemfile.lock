@@ -239,6 +239,8 @@ GEM
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
+    showcase-rails (0.4.6)
+      rails (>= 6.1.0)
     sin_lru_redux (2.5.2)
     sqlite3 (2.8.0-arm64-darwin)
     sqlite3 (2.8.0-x86_64-linux-gnu)
@@ -280,6 +282,7 @@ DEPENDENCIES
   propshaft
   puma
   rubocop-rails-omakase
+  showcase-rails
   sqlite3
 
 BUNDLED WITH

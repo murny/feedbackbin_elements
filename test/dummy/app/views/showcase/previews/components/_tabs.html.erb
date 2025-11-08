@@ -1,0 +1,26 @@
+<%
+  showcase.title "Tabs"
+  showcase.description "A set of layered sections of content—known as tab panels—that are displayed one at a time."
+%>
+
+<% showcase.sample "Base" do %>
+  <%= render_tabs(
+    items: [
+      {
+        value: "personal",
+        label: "Personal Info",
+        content: content_tag(:div, "Personal information content goes here.", class: "p-4 text-sm")
+      },
+      {
+        value: "billing",
+        label: "Billing",
+        content: content_tag(:div, "Billing information content goes here.", class: "p-4 text-sm")
+      },
+      {
+        value: "notifications",
+        label: "Notifications",
+        content: content_tag(:div, "Notification preferences content goes here.", class: "p-4 text-sm")
+      }
+    ]
+  ) %>
+<% end %>

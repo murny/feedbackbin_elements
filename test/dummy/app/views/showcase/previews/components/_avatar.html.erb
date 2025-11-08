@@ -1,0 +1,77 @@
+<%
+  showcase.title "Avatar"
+  showcase.description "An image element with a fallback for representing the user."
+%>
+
+<% showcase.sample "Base" do %>
+  <div class="flex items-center gap-4">
+    <%= render_avatar src: "https://github.com/murny.png", alt: "@murny" %>
+  </div>
+<% end %>
+
+<% showcase.sample "Sizes" do %>
+  <div class="flex items-center gap-6">
+    <%= render_avatar src: "https://github.com/murny.png", alt: "@murny", size: :sm %>
+    <%= render_avatar src: "https://github.com/murny.png", alt: "@murny", size: :default %>
+    <%= render_avatar src: "https://github.com/murny.png", alt: "@murny", size: :lg %>
+    <%= render_avatar src: "https://github.com/murny.png", alt: "@murny", size: :xl %>
+  </div>
+<% end %>
+
+<% showcase.sample "Fallbacks" do %>
+  <div class="flex items-center gap-6">
+    <%= render_avatar fallback: "SM" %>
+    <%= render_avatar fallback: "John Doe" %>
+    <%= render_avatar fallback: "Sarah Johnson" %>
+  </div>
+  <p class="mt-4 text-sm text-muted-foreground">When providing a full name as the fallback, the component will automatically generate initials (up to 2 characters).</p>
+<% end %>
+
+<% showcase.sample "Shapes" do %>
+  <div class="flex items-center gap-6">
+    <%= render_avatar src: "https://github.com/murny.png", alt: "@murny", shape: :circle %>
+    <%= render_avatar src: "https://github.com/murny.png", alt: "@murny", shape: :square %>
+  </div>
+<% end %>
+
+<% showcase.sample "Avatar Groups" do %>
+  <div class="flex flex-col gap-6">
+    <div>
+      <h4 class="text-sm font-medium mb-2">Basic Group</h4>
+      <%= render_avatar_group([
+        { src: "https://github.com/murny.png", alt: "@murny", fallback: "SM" },
+        { src: "https://github.com/rails.png", alt: "@rails", fallback: "RR" },
+        { src: "https://github.com/ruby.png", alt: "@ruby", fallback: "RB" }
+      ]) %>
+    </div>
+
+    <div>
+      <h4 class="text-sm font-medium mb-2">With Limit (shows +2 more)</h4>
+      <%= render_avatar_group([
+        { src: "https://github.com/murny.png", alt: "@murny", fallback: "SM" },
+        { src: "https://github.com/rails.png", alt: "@rails", fallback: "RR" },
+        { src: "https://github.com/ruby.png", alt: "@ruby", fallback: "RB" },
+        { src: "https://github.com/feedbackbin.png", alt: "@feedbackbin", fallback: "FB" },
+        { src: "https://github.com/github.png", alt: "@github", fallback: "GH" }
+      ], limit: 3) %>
+    </div>
+
+    <div>
+      <h4 class="text-sm font-medium mb-2">Large Size</h4>
+      <%= render_avatar_group([
+        { src: "https://github.com/murny.png", alt: "@murny", fallback: "SM" },
+        { src: "https://github.com/rails.png", alt: "@rails", fallback: "RR" },
+        { src: "https://github.com/ruby.png", alt: "@ruby", fallback: "RB" }
+      ], size: :lg) %>
+    </div>
+
+    <div>
+      <h4 class="text-sm font-medium mb-2">With Hover Effect</h4>
+      <%= render_avatar_group([
+        { src: "https://github.com/murny.png", alt: "@murny", fallback: "SM" },
+        { src: "https://github.com/rails.png", alt: "@rails", fallback: "RR" },
+        { src: "https://github.com/ruby.png", alt: "@ruby", fallback: "RB" }
+      ], hover_effect: true) %>
+    </div>
+  </div>
+<% end %>

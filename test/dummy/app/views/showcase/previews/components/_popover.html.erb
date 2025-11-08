@@ -1,0 +1,16 @@
+<%
+  showcase.title "Popover"
+  showcase.description "Displays rich content in a portal, triggered by a button."
+%>
+
+<% showcase.sample "Base" do %>
+  <%= render_popover(
+    trigger: render_button(text: "Open Popover", variant: :outline),
+    content: tag.div(class: "grid gap-4") do
+      concat(tag.div(class: "grid gap-1.5") do
+        concat(tag.h4("Dimensions", class: "leading-none font-medium"))
+        concat(tag.p("Set the dimensions for the layer.", class: "text-muted-foreground text-sm"))
+      end)
+    end
+  ) %>
+<% end %>

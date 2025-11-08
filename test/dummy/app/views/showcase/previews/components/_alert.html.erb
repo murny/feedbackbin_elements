@@ -1,0 +1,57 @@
+<%
+  showcase.title "Alert"
+  showcase.description "Displays a callout for user attention."
+%>
+
+<% showcase.sample "Base Alert" do %>
+  <%= render_alert(
+    title: "Information",
+    description: "This is a default alert with basic information."
+  ) %>
+<% end %>
+
+<% showcase.sample "Destructive Alert" do %>
+  <%= render_alert(
+    title: "Error",
+    description: "Something went wrong. Please try again later.",
+    variant: :destructive
+  ) %>
+<% end %>
+
+<% showcase.sample "With Custom Icon" do %>
+  <%= render_alert(
+    title: "Success",
+    description: "Your changes have been saved successfully.",
+    icon: "circle-check"
+  ) %>
+<% end %>
+
+<% showcase.sample "Without Icon" do %>
+  <div class="space-y-4">
+    <%= render_alert(
+      title: "No Icon Alert",
+      description: "This alert doesn't display any icon.",
+      show_icon: false
+    ) %>
+
+    <%= render_alert(
+      description: "This alert has only description, no title and no icon.",
+      show_icon: false
+    ) %>
+  </div>
+<% end %>
+
+<% showcase.sample "With List Content" do %>
+  <%= render_alert(
+    title: "Unable to process your payment",
+    icon: "circle-alert",
+    variant: :destructive
+  ) do %>
+    <p>Please verify your billing information and try again.</p>
+    <ul class="list-inside list-disc text-sm">
+      <li>Check your card details</li>
+      <li>Ensure sufficient funds</li>
+      <li>Verify billing address</li>
+    </ul>
+  <% end %>
+<% end %>

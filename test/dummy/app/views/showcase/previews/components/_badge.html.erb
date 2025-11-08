@@ -1,0 +1,41 @@
+<%
+  showcase.title "Badge"
+  showcase.description "Displays a badge or a component that looks like a badge."
+%>
+
+<% showcase.sample "Base" do %>
+  <%= render_badge(text: "Badge") %>
+<% end %>
+
+<% showcase.sample "Variants" do %>
+  <div class="flex gap-2">
+    <%= render_badge(text: "Default") %>
+    <%= render_badge(text: "Secondary", variant: :secondary) %>
+    <%= render_badge(text: "Destructive", variant: :destructive) %>
+    <%= render_badge(text: "Outline", variant: :outline) %>
+  </div>
+<% end %>
+
+<% showcase.sample "With Icons" do %>
+  <div class="flex gap-2">
+    <%= render_badge(variant: :default) do %>
+      <%= lucide_icon "check" %>
+      Success
+    <% end %>
+
+    <%= render_badge(variant: :destructive) do %>
+      <%= lucide_icon "circle-alert" %>
+      Error
+    <% end %>
+
+    <%= render_badge(variant: :secondary) do %>
+      <%= lucide_icon "info" %>
+      Info
+    <% end %>
+
+    <%= render_badge(variant: :outline) do %>
+      <%= lucide_icon "tag" %>
+      Tag
+    <% end %>
+  </div>
+<% end %>

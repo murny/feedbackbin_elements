@@ -11,9 +11,9 @@ FeedbackbinElements is a Rails engine gem providing a shadcn-inspired UI compone
 ### Running the Development Server
 ```bash
 cd test/dummy
-bundle exec rails server
+bin/rails server
 ```
-Visit `http://localhost:3000` to see the component documentation.
+Visit `http://localhost:3000/showcase` to see the component documentation via Showcase.
 
 ### Running Tests
 ```bash
@@ -87,13 +87,14 @@ options[:class] = tw_merge(base_classes, variant_classes, size_classes, custom_c
 
 **Dual Rendering**: Components that can be both links and buttons (like Button) conditionally render different HTML tags based on presence of `href` parameter
 
-### Documentation Engine
+### Documentation with Showcase
 
-The engine includes a built-in documentation site:
-- Routes defined in `config/routes.rb` (mounted under `/`)
-- Controller at `app/controllers/feedbackbin_elements/docs/components_controller.rb`
-- Each component has a dedicated route and view showing examples
-- Uses `lucide-rails` for icons in examples
+Component documentation is powered by the `showcase-rails` gem:
+- Showcase is mounted at `/showcase` in `test/dummy/config/routes.rb`
+- Preview files are located in `test/dummy/app/views/showcase/previews/`
+- Each component preview is a partial (e.g., `_button.html.erb`) that uses the Showcase API
+- Showcase provides automatic performance metrics, dark mode, and a clean UI
+- Visit `http://localhost:3000/showcase` when the dev server is running
 
 ### Dependencies
 
@@ -105,6 +106,7 @@ Core dependencies (from `feedbackbin_elements.gemspec`):
 - `turbo-rails` & `stimulus-rails` - Hotwire stack
 - `propshaft` - Asset pipeline
 - `lucide-rails` - Icon library
+- `showcase-rails` (development) - Component preview and documentation system
 
 ### Test Dummy App
 
@@ -118,6 +120,34 @@ Located in `test/dummy/`, this is a minimal Rails app used for:
 1. Create helper module in `app/helpers/feedbackbin_elements/`
 2. Create partial in `app/views/feedbackbin_elements/components/`
 3. Add helper to engine initializer in `lib/feedbackbin_elements/engine.rb`
-4. Create documentation views in `app/views/feedbackbin_elements/docs/components/`
-5. Add route in `config/routes.rb`
-6. Update README.md component list
+4. Create Showcase preview in `test/dummy/app/views/showcase/previews/components/`
+5. Update README.md component list
+
+### Creating a Showcase Preview
+
+Showcase previews use a simple API. Here's a template:
+
+```erb
+<%
+  showcase.title "Component Name"
+  showcase.description "Brief description of the component."
+%>
+
+<% showcase.sample "Variant Name" do %>
+  <div class="flex gap-4">
+    <%= render_component(...) %>
+  </div>
+<% end %>
+
+<% showcase.sample "Another Variant" do %>
+  <%= render_component(...) %>
+<% end %>
+```
+
+Key points:
+- Previews are partial files with leading underscore (e.g., `_button.html.erb`)
+- Use `showcase.title` and `showcase.description` at the top
+- Create multiple samples with `showcase.sample "Name" do ... end`
+- Each sample renders live component examples
+- Showcase automatically tracks performance metrics
+- Preview files are automatically discovered and added to the sidebar

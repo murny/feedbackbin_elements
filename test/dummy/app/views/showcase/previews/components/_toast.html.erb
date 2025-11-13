@@ -1,0 +1,23 @@
+<%
+  showcase.title "Toast"
+  showcase.description "A succinct message that is displayed temporarily."
+%>
+
+<% showcase.sample "Basic Toast" do %>
+  <p class="text-sm text-muted-foreground mb-4">Note: Toasts typically appear temporarily. This is a static example.</p>
+  <%= render_toast(
+    title: "Success",
+    description: "Your changes have been saved successfully.",
+    variant: :default,
+    dismiss_after: false
+  ) %>
+<% end %>
+
+<% showcase.sample "Destructive Toast" do %>
+  <%= render_toast(
+    title: "Error",
+    description: "Something went wrong. Please try again.",
+    variant: :destructive,
+    dismiss_after: false
+  ) %>
+<% end %>

@@ -1,0 +1,31 @@
+<%
+  showcase.title "Forms"
+  showcase.description "Form elements with enhanced styling."
+%>
+
+<% showcase.sample "Input Fields" do %>
+  <%= render_form_with(url: "#", class: "w-full max-w-md") do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: "Enter your name" %>
+
+    <%= form.label :email %>
+    <%= form.email_field :email, placeholder: "Enter your email" %>
+
+    <%= form.label :password %>
+    <%= form.password_field :password, placeholder: "Enter your password" %>
+  <% end %>
+<% end %>
+
+<% showcase.sample "Textarea" do %>
+  <%= render_form_with(url: "#", class: "w-full max-w-md") do |form| %>
+    <%= form.label :message %>
+    <%= form.text_area :message, placeholder: "Enter your message", rows: 4 %>
+  <% end %>
+<% end %>
+
+<% showcase.sample "Select" do %>
+  <%= render_form_with(url: "#", class: "w-full max-w-md") do |form| %>
+    <%= form.label :country %>
+    <%= form.select :country, ["United States", "Canada", "Mexico", "United Kingdom"], { prompt: "Select a country" } %>
+  <% end %>
+<% end %>
